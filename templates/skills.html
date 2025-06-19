@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block title %}Skills & Projects - Madhav Ganesh{% endblock %}
+
+{% block content %}
+<div class="container">
+  <section id="skills" class="section">
+    <h2 class="section-title">Skills & Projects</h2>
+
+    <!-- Core Technologies -->
+    <h3 class="subsection-title animated-item"><i class="fas fa-cogs icon-left"></i>Core Technologies</h3>
+    <div class="tech-grid">
+      <div class="card tech-category-card animated-item">
+        <h4><i class="fas fa-code icon-left"></i>Languages</h4>
+        <div class="skill-tags-container">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Java</span>
+          <span class="skill-tag">C++</span>
+          <span class="skill-tag">SQL</span>
+        </div>
+      </div>
+      <div class="card tech-category-card animated-item">
+        <h4><i class="fas fa-desktop icon-left"></i>Web Development</h4>
+        <div class="skill-tags-container">
+          <span class="skill-tag">HTML</span>
+          <span class="skill-tag">CSS</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">React</span>
+        </div>
+      </div>
+    </div>
+
+  <!-- Projects Section -->
+<h3 class="subsection-title animated-item">
+  <i class="fas fa-project-diagram icon-left"></i>Featured Projects
+</h3>
+<div class="projects-grid">
+
+  <!-- Project 1: Student Registration Form -->
+  <div class="card project-card animated-item">
+    <div class="project-card-header">
+      <i class="fas fa-user-plus project-icon"></i>
+      <h4>Student Registration Form</h4>
+    </div>
+    <p>A web-based form application that allows students to register their details securely, using form validation, server-side storage, and responsive design.</p>
+    <div class="project-tech-stack">
+      <strong>Tech Stack:</strong>
+      <span class="skill-tag tech-stack-tag">HTML</span>
+      <span class="skill-tag tech-stack-tag">CSS</span>
+      <span class="skill-tag tech-stack-tag">Flask</span>
+      <span class="skill-tag tech-stack-tag">SQLite</span>
+    </div>
+    <a href="#" class="btn-link" target="_blank">View on GitHub <i class="fab fa-github"></i></a>
+  </div>
+
+  <!-- Project 2: Online Feedback System -->
+  <div class="card project-card animated-item">
+    <div class="project-card-header">
+      <i class="fas fa-comments project-icon"></i>
+      <h4>Online Feedback System</h4>
+    </div>
+    <p>An interactive platform for collecting student or user feedback. Includes admin panel, sentiment analysis basics, and easy export functionality.</p>
+    <div class="project-tech-stack">
+      <strong>Tech Stack:</strong>
+      <span class="skill-tag tech-stack-tag">Flask</span>
+      <span class="skill-tag tech-stack-tag">HTML</span>
+      <span class="skill-tag tech-stack-tag">Bootstrap</span>
+      <span class="skill-tag tech-stack-tag">Python</span>
+    </div>
+    <a href="#" class="btn-link" target="_blank">View on GitHub <i class="fab fa-github"></i></a>
+  </div>
+
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    const animatedItems = document.querySelectorAll('.animated-item');
+    animatedItems.forEach((item, index) => {
+      item.style.animationDelay = `${index * 100}ms`;
+      observer.observe(item);
+    });
+  });
+</script>
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- ================== -->
+<!-- ====== HERO ====== -->
+<!-- ================== -->
+<section id="home" class="section hero-section">
+    <div class="hero-content">
+        <h1 class="hero-title animated-item slide-in-bottom">Madhav Ganesh Pilla</h1>
+        <h3 class="hero-subtitle animated-item slide-in-bottom">CSE Student | Cyber Security Enthusiast & Full Stack Development</h3>
+        <p class="hero-text animated-item slide-in-bottom">
+            Motivated and detail-oriented undergraduate with a strong foundation in programming and cybersecurity. Passionate about solving real-world problems using innovative technologies.
+        </p>
+        <div class="hero-buttons animated-item slide-in-bottom">
+            <a href="{{ url_for('skills') }}" class="btn btn-primary">View My Work</a>
+            <a href="{{ url_for('resume') }}" class="btn btn-secondary">See My Resume</a>
+        </div>
+    </div>
+</section>
+
+<!-- ======================= -->
+<!-- ====== ABOUT ME ======= -->
+<!-- ======================= -->
+<section id="about" class="section about-section">
+    <div class="container">
+        <div class="about-grid">
+            <!-- Image Column -->
+            <div class="about-image-container animated-item slide-in-left">
+                <div class="image-wrapper">
+                    <img src="https://placehold.co/400x400/161b22/f0f6fc?text=John\nDoe" alt="Profile picture of John Doe" class="profile-pic">
+                </div>
+            </div>
+            <!-- Text Column -->
+            <div class="about-text-container animated-item slide-in-right">
+                <h2 class="about-title">About Me</h2>
+                <p>
+                    I am an undergraduate student at XYZ Engineering College, pursuing a degree in Artificial Intelligence and Machine Learning. My passion lies at the intersection of AI, software development, and cybersecurity.
+                </p>
+                <p>
+                    From developing simple AI chatbots to learning web security basics, I enjoy exploring how technology can solve everyday problems.
+                </p>
+                <p>
+                    Outside of academics, I love experimenting with new technologies, building mini projects, and exploring open-source contributions.
+                </p>
+                <p>
+                    I am an undergraduate student at XYZ Engineering College, pursuing a degree in Artificial Intelligence and Machine Learning. My passion lies at the intersection of AI, software development, and cybersecurity.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =============================== -->
+<!-- === ANIMATED ITEM JS SCRIPT === -->
+<!-- =============================== -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    const animatedItems = document.querySelectorAll('.animated-item');
+    animatedItems.forEach((item, index) => {
+      item.style.transitionDelay = `${index * 100}ms`;
+      observer.observe(item);
+    });
+  });
+</script>
+{% endblock %}

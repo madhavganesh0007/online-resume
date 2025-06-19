@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}Madhav Ganesh | Portfolio{% endblock %}</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+
+  <!-- Background Video -->
+  <video autoplay muted loop id="bg-video">
+  <source src="{{ url_for('static', filename='media/bg.mp4') }}" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container nav-container">
+      <a href="{{ url_for('home') }}" class="logo">My Portfolio</a>
+      <nav class="navbar">
+        <a href="{{ url_for('home') }}" class="{{ 'active' if active_page == 'home' else '' }}">Home</a>
+        <a href="{{ url_for('skills') }}" class="{{ 'active' if active_page == 'skills' else '' }}">Skills & Projects</a>
+        <a href="{{ url_for('resume') }}" class="{{ 'active' if active_page == 'resume' else '' }}">Resume</a>
+        <a href="{{ url_for('contact') }}" class="{{ 'active' if active_page == 'contact' else '' }}">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="page-content">
+    {% block content %}
+    <!-- Hero Section -->
+    <section class="section">
+      <div class="container">
+        <h1>MADHAV<br>GANESH</h1>
+        <p>Full Stack Developer Trainee | Passionate about AI, Web Development, and Security.</p>
+        <p>Driven to create elegant and effective web solutions using modern technology.</p>
+        <p>Eager to apply coding skills in real-world projects and always learning more.</p>
+      </div>
+    </section>
+    {% endblock %}
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="social-links">
+        <a href="https://github.com/madhavganesh" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/madhavganesh" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:madhavganeshpilla@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+      <p>© 2025 Madhav Ganesh. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
